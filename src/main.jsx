@@ -1,6 +1,31 @@
-import { createRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
+import { restaurants } from './mock';
 
 
 createRoot(document.getElementById('root')).render(
-  <div>Hello</div>
+  <>
+    <h1>Список ресторанов:</h1>
+    <ul>
+      {restaurants.map((restaurant) => {
+        const { id, name, menu, reviews } = restaurant;
+        return (
+          <li key={id} data-id={id}>
+            <h2>{name}</h2>
+            <h3>Меню</h3>
+            <ul>
+              {menu.map((el, index) => (
+                <li key={index}>{el.name}</li>
+              ))}
+            </ul>
+            <h3>Отзывы</h3>
+            <ul>
+              {reviews.map((review, index) => (
+                <li key={index}>{review.text}</li>
+              ))}
+            </ul>
+          </li>
+        )
+      })}
+    </ul>
+  </>
 )
