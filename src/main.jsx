@@ -6,10 +6,9 @@ createRoot(document.getElementById('root')).render(
   <>
     <h1>Список ресторанов:</h1>
     <ul>
-      {restaurants.map((restaurant) => {
-        const { id, name, menu, reviews } = restaurant;
+      {restaurants.map(({ id, name, menu, reviews }) => {
         return (
-          <li key={id} data-id={id}>
+          <li key={id}>
             <h2>{name}</h2>
             <h3>Меню</h3>
             <ul>
