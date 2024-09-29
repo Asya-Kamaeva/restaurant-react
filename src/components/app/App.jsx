@@ -17,12 +17,12 @@ export const App = () => {
     <div>
       <Layout>
       <h1>Список ресторанов:</h1>
-      <ul style={{display: 'flex', listStyle: 'none', gap: '20px'}}>
+      <div style={{display: 'flex', listStyle: 'none', gap: '20px'}}>
         {restaurants.map(({name, id}) => (
-          <li key={id} onClick={() => handleClick(id)}>{name}</li>
+          <button key={id} onClick={() => handleClick(id)}>{name}</button>
         ))}
-      </ul>
-      <Restaurant data={restaurants.find(item => item.id === activeId)} />
+      </div>
+      <Restaurant data={restaurants.find(item => item.id === activeId)} key={activeId} />
       </Layout>
     </div>
   )
