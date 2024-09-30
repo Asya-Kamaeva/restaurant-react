@@ -1,12 +1,9 @@
-import { useCount } from "./useCount";
-
-export const Count = () => {
-  const { value, increase, decrease } = useCount();
+export const Count = ({ value, plusAction, minusAction }) => {
   return (
     <div style={{display: 'flex'}}>
-      <button onClick={decrease}>-</button>
+      <button type="button" onClick={minusAction}>-</button>
       <div>{value}</div>
-      <button onClick={increase}>+</button>
+      <button type="button" onClick={plusAction}>+</button>
     </div>
   )
 }
