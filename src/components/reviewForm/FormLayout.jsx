@@ -1,5 +1,6 @@
 import { Count } from "../count/Count";
 import { useForm } from "./use-form";
+import styles from "./form.module.scss";
 
 export const FormLayout = () => {
   const {
@@ -11,34 +12,57 @@ export const FormLayout = () => {
     setIncreaseGrade,
     setDecreaseGrade,
     setDefaultValue,
-    sendResult
+    sendResult,
   } = useForm();
 
   return (
     <form>
-      <label htmlFor="name">
-        <span>Имя:</span>
-        <input 
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <label htmlFor="review" style={{display: 'block'}}>
-        <span>Ваш отзыв:</span>
+      <div className={styles.form__row}>
+        <label htmlFor="name">
+          <span>Имя</span>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Иван Петрович"
+          />
+        </label>
+        <div>
+          <span>Ваша оценка:</span>
+          <Count
+            value={grade}
+            increase={setIncreaseGrade}
+            decrease={setDecreaseGrade}
+            isReview={true}
+          />
+        </div>
+      </div>
+      <label htmlFor="review" style={{ display: "block" }}>
+        <span>Ваш отзыв</span>
         <textarea
           id="review"
           onChange={(e) => setReview(e.target.value)}
           value={review}
+          placeholder="Очень довольный"
         ></textarea>
       </label>
-      <div>
-        <span>Ваша оценка:</span>
-        <Count value={grade} plusAction={setIncreaseGrade} minusAction={setDecreaseGrade} />
+      <div className={styles.form__line}>
+        <button
+          className={styles.form__reset}
+          type="button"
+          onClick={() => setDefaultValue()}
+        >
+          Очистить
+        </button>
+        <button
+          className={styles.form__submit}
+          type="button"
+          onClick={sendResult}
+        >
+          Отправить
+        </button>
       </div>
-      <button type="button" onClick={() => setDefaultValue()}>clear</button>
-      <button type="button" onClick={sendResult}>submit</button>
     </form>
-  )
-}
+  );
+};

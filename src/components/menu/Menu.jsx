@@ -1,12 +1,15 @@
 import { MenuItem } from "./MenuItem";
+import styles from "./menu.module.scss";
 
-export const Menu = ({menu}) => {
+export const Menu = ({ menu }) => {
   return (
-    <>
-      <h3>Меню</h3>
+    <div className={styles.menu}>
+      <h2>Меню</h2>
       <ul>
-        {menu.map((item, index) => <MenuItem key={index} item={item} />)}
+        {menu.map((item, index) => (
+          <MenuItem key={index} item={item} />
+        ))}
       </ul>
-    </>
-  )
-}
+    </div>
+  );
+};
