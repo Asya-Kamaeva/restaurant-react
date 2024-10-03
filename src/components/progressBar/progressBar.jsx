@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from './progress.module.scss';
 
 export const ProgressBar = () => {
   const [width, setWidth] = useState(0);
@@ -20,13 +21,9 @@ export const ProgressBar = () => {
 
   return (
     <div
+      className={styles.progress}
       style={{
-        width: `${width}%`,
-        height: "10px",
-        backgroundColor: "red",
-        position: "fixed",
-        top: "0",
-        left: "0",
+        width: `${width}%`
       }}
     ></div>
   );
