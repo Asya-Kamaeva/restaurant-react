@@ -12,7 +12,7 @@ export const Restaurant = ({ data }) => {
       {menu.length > 0 && <Menu menu={menu} />}
       {reviews.length > 0 && <Reviews reviews={reviews} />}
       <FormBlock />
-      <div style={{ height: "1200px" }}></div>
+      <div className={styles.block}></div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ export const MenuItem = ({ item }) => {
   const { value, increase, decrease } = useCount();
   return (
     <li className={styles.item}>
-      <div className={styles.item__name}>{item.name}</div>
+      <div className={styles.name}>{item.name}</div>
       <Count value={value} increase={increase} decrease={decrease} />
     </li>
   );

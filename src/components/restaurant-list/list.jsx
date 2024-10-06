@@ -1,12 +1,17 @@
+import Button from "../button/button";
 import styles from "./list.module.scss";
 
 export default function RestaurantList({ data, action }) {
   return (
     <div className={styles.list}>
       {data.map(({ name, id }) => (
-        <button key={id} onClick={() => action(id)}>
-          {name}
-        </button>
+        <Button
+          key={id}
+          id={id}
+          action={action}
+          text={name}
+          className={styles.button}
+        />
       ))}
     </div>
   );

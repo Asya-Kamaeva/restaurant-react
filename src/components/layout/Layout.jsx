@@ -6,10 +6,8 @@ export const Layout = ({ children }) => {
     <div>
       <header>
         <div className={styles.header}>
-          <div className="container">
-            <div className={styles.header__content}>
-              Здесь возможно будет header
-            </div>
+          <div className={styles.container}>
+            <div>Здесь возможно будет header</div>
           </div>
         </div>
       </header>
@@ -17,10 +15,8 @@ export const Layout = ({ children }) => {
       {children}
       <footer>
         <div className={styles.footer}>
-          <div className="container">
-            <div className={styles.footer__content}>
-              Здесь возможно будет footer
-            </div>
+          <div className={styles.container}>
+            <div>Здесь возможно будет footer</div>
           </div>
         </div>
       </footer>

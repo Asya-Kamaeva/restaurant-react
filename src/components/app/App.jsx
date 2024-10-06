@@ -3,6 +3,7 @@ import { Layout } from "../layout/Layout";
 import RestaurantList from "../restaurant-list/list";
 import { Restaurant } from "../restaurant-item/Restautant";
 import { useState } from "react";
+import styles from "./app.module.scss";
 
 export const App = () => {
   const [activeId, setActiveId] = useState(restaurants[0].id);
@@ -17,7 +18,7 @@ export const App = () => {
   return (
     <div>
       <Layout>
-        <div className="container">
+        <div className={styles.container}>
           <h1>Список ресторанов:</h1>
           <RestaurantList data={restaurants} action={handleClick} />
           <Restaurant

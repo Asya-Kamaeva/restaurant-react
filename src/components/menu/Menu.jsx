@@ -5,7 +5,7 @@ export const Menu = ({ menu }) => {
   return (
     <div className={styles.menu}>
       <h2>Меню</h2>
-      <ul>
+      <ul className={styles.list}>
         {menu.map((item, index) => (
           <MenuItem key={index} item={item} />
         ))}

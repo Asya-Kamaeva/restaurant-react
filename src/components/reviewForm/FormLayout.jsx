@@ -1,6 +1,7 @@
 import { Count } from "../count/Count";
 import { useForm } from "./use-form";
 import styles from "./form.module.scss";
+import Button from "../button/button";
 
 export const FormLayout = () => {
   const {
@@ -17,19 +18,20 @@ export const FormLayout = () => {
 
   return (
     <form>
-      <div className={styles.form__row}>
-        <label htmlFor="name">
-          <span>Имя</span>
+      <div className={styles.row}>
+        <label htmlFor="name" className={styles.label}>
+          <span className={styles.span}>Имя</span>
           <input
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Иван Петрович"
+            className={styles.input}
           />
         </label>
         <div>
-          <span>Ваша оценка:</span>
+          <span className={styles.span}>Ваша оценка:</span>
           <Count
             value={grade}
             increase={setIncreaseGrade}
@@ -38,30 +40,27 @@ export const FormLayout = () => {
           />
         </div>
       </div>
-      <label htmlFor="review" style={{ display: "block" }}>
-        <span>Ваш отзыв</span>
+      <label htmlFor="review" className={styles.label}>
+        <span className={styles.span}>Ваш отзыв</span>
         <textarea
           id="review"
           onChange={(e) => setReview(e.target.value)}
           value={review}
           placeholder="Очень довольный"
+          className={styles.textarea}
         ></textarea>
       </label>
-      <div className={styles.form__line}>
-        <button
-          className={styles.form__reset}
-          type="button"
-          onClick={() => setDefaultValue()}
-        >
-          Очистить
-        </button>
-        <button
-          className={styles.form__submit}
-          type="button"
-          onClick={sendResult}
-        >
-          Отправить
-        </button>
+      <div className={styles.line}>
+        <Button
+          action={setDefaultValue}
+          text={"Очистить"}
+          className={styles.reset}
+        />
+        <Button
+          action={sendResult}
+          text={"Отправить"}
+          className={styles.submit}
+        />
       </div>
     </form>
   );
