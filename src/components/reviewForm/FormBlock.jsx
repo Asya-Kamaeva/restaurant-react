@@ -1,11 +1,17 @@
 import styles from "./form.module.scss";
 import { FormLayout } from "./FormLayout";
+import { useUser } from "../userContext/use-user";
 
 export const FormBlock = () => {
-  return (
-    <div className={styles.form}>
-      <h3>Оставьте ваш отзыв:</h3>
-      <FormLayout />
-    </div>
-  );
+  const { user } = useUser();
+  if (user.length) {
+    return (
+      <div className={styles.form}>
+        <h3>Оставьте ваш отзыв:</h3>
+        <FormLayout />
+      </div>
+    );
+  } else {
+    return;
+  }
 };

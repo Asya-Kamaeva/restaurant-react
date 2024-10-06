@@ -5,13 +5,7 @@ export default function RestaurantList({ data, action }) {
   return (
     <div className={styles.list}>
       {data.map(({ name, id }) => (
-        <Button
-          key={id}
-          id={id}
-          action={action}
-          text={name}
-          className={styles.button}
-        />
+        <Button key={id} id={id} action={action} text={name} />
       ))}
     </div>
   );

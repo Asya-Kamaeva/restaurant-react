@@ -4,6 +4,8 @@ import RestaurantList from "../restaurant-list/list";
 import { Restaurant } from "../restaurant-item/Restautant";
 import { useState } from "react";
 import styles from "./app.module.scss";
+import { ThemeContextProvider } from "../theme-context/theme-context";
+import { UserContextProvider } from "../userContext/user-context";
 
 export const App = () => {
   const [activeId, setActiveId] = useState(restaurants[0].id);
@@ -16,17 +18,19 @@ export const App = () => {
     }
   };
   return (
-    <div>
-      <Layout>
-        <div className={styles.container}>
-          <h1>Список ресторанов:</h1>
-          <RestaurantList data={restaurants} action={handleClick} />
-          <Restaurant
-            data={restaurants.find((item) => item.id === activeId)}
-            key={activeId}
-          />
-        </div>
-      </Layout>
-    </div>
+    <UserContextProvider>
+      <ThemeContextProvider>
+        <Layout>
+          <div className={styles.container}>
+            <h1>Список ресторанов:</h1>
+            <RestaurantList data={restaurants} action={handleClick} />
+            <Restaurant
+              data={restaurants.find((item) => item.id === activeId)}
+              key={activeId}
+            />
+          </div>
+        </Layout>
+      </ThemeContextProvider>
+    </UserContextProvider>
   );
 };
