@@ -1,0 +1,19 @@
+.menu {
+  margin-bottom: 50px;
+  width: 500px;
+}
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.name {
+  font-size: 18px;
+}

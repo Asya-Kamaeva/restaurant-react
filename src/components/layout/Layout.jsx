@@ -1,12 +1,25 @@
-import { ProgressBar } from "../progressBar/progressBar"
+import { ProgressBar } from "../progressBar/progressBar";
+import styles from "./layout.module.scss";
 
 export const Layout = ({ children }) => {
   return (
     <div>
-      <header style={{backgroundColor: 'grey'}}>Header</header>
+      <header>
+        <div className={styles.header}>
+          <div className={styles.container}>
+            <div>Здесь возможно будет header</div>
+          </div>
+        </div>
+      </header>
       <ProgressBar />
       {children}
-      <footer style={{backgroundColor: 'grey'}}>Footer</footer>
+      <footer>
+        <div className={styles.footer}>
+          <div className={styles.container}>
+            <div>Здесь возможно будет footer</div>
+          </div>
+        </div>
+      </footer>
     </div>
-  )
-}
+  );
+};
