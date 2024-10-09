@@ -1,27 +1,17 @@
-import Button from "../button/button";
 import { ProgressBar } from "../progressBar/progressBar";
-import { useTheme } from "../theme-context/use-theme";
-import { useUser } from "../userContext/use-user";
 import styles from "./layout.module.scss";
+import { ToggleTheme } from "../toggle-theme/toggle-theme";
+import { SignIn } from "../sign-in/sign-in";
 
 export const Layout = ({ children }) => {
-  const { toggleTheme } = useTheme();
-  const { user, addUser, resetUser } = useUser();
   return (
     <div>
       <header>
         <div className={styles.header}>
           <div className={styles.container}>
             <div className={styles.line}>
-              <Button text={"Toggle Theme"} action={toggleTheme} />
-              {user !== "" ? (
-                <div className={styles.user}>
-                  <div className={styles.userName}>{user}</div>
-                  <Button text={"Выйти"} action={resetUser} />
-                </div>
-              ) : (
-                <Button text={"Войти"} action={addUser} />
-              )}
+              <ToggleTheme />
+              <SignIn />
             </div>
           </div>
         </div>
