@@ -2,7 +2,14 @@ import classNames from "classnames";
 import styles from "./button.module.scss";
 import { useTheme } from "../theme-context/use-theme";
 
-export default function Button({ action, text, id, className, type }) {
+export default function Button({
+  action,
+  text,
+  id,
+  className,
+  type,
+  isActive,
+}) {
   const { theme } = useTheme();
 
   return (
@@ -13,7 +20,9 @@ export default function Button({ action, text, id, className, type }) {
         [styles.light]: theme === "light",
         [styles.dark]: theme === "dark",
         [styles.lightGrey]: type === "lightGrey",
+        [styles.active]: isActive,
       })}
+      disabled={isActive}
     >
       {text}
     </button>

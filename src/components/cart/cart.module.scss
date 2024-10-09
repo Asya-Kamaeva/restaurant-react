@@ -1,0 +1,22 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.elem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
