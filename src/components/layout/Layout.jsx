@@ -1,5 +1,7 @@
 import { ProgressBar } from "../progressBar/progressBar";
 import styles from "./layout.module.scss";
+import { ToggleTheme } from "../toggle-theme/toggle-theme";
+import { SignIn } from "../sign-in/sign-in";
 
 export const Layout = ({ children }) => {
   return (
@@ -7,7 +9,10 @@ export const Layout = ({ children }) => {
       <header>
         <div className={styles.header}>
           <div className={styles.container}>
-            <div>Здесь возможно будет header</div>
+            <div className={styles.line}>
+              <ToggleTheme />
+              <SignIn />
+            </div>
           </div>
         </div>
       </header>

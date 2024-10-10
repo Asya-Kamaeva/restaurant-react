@@ -51,11 +51,7 @@ export const FormLayout = () => {
         ></textarea>
       </label>
       <div className={styles.line}>
-        <Button
-          action={setDefaultValue}
-          text={"Очистить"}
-          className={styles.reset}
-        />
+        <Button action={setDefaultValue} text={"Очистить"} type={"lightGrey"} />
         <Button
           action={sendResult}
           text={"Отправить"}
