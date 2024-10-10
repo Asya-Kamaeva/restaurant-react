@@ -1,6 +1,6 @@
 import { useUser } from "../userContext/use-user";
 import Button from "../button/button";
-import styles from './signin.module.scss';
+import styles from "./signin.module.scss";
 
 export const SignIn = () => {
   const { user, addUser, resetUser } = useUser();
@@ -15,5 +15,5 @@ export const SignIn = () => {
         <Button text={"Войти"} action={addUser} />
       )}
     </>
-  )
-}
+  );
+};

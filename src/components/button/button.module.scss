@@ -38,3 +38,7 @@
     box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.4);
   }
 }
+.active {
+  background-color: var(--blue);
+  color: var(--white);
+}
