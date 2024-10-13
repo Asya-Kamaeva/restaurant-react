@@ -4,7 +4,5 @@ import Button from "../button/button";
 export const ToggleTheme = () => {
   const { toggleTheme } = useTheme();
 
-  return (
-    <Button text={"Toggle Theme"} action={toggleTheme} />
-  );
-}
+  return <Button text={"Toggle Theme"} action={toggleTheme} />;
+};
