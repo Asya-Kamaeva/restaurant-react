@@ -1,21 +1,25 @@
-import { Menu } from "../menu/Menu";
-import { Reviews } from "../reviews/Reviews";
 import { FormBlock } from "../reviewForm/FormBlock";
 import styles from "./Restautant.module.scss";
-import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../redux/restaurants";
+import { NavLink, Outlet } from "react-router-dom";
 
-export const Restaurant = ({ id }) => {
-  const restaurant = useSelector((state) => selectRestaurantById(state, id));
-
-  if (!restaurant) return null;
-
-  const { menu, reviews } = restaurant;
-
+export const Restaurant = () => {
   return (
     <div className={styles.item}>
-      {menu.length > 0 && <Menu menu={menu} />}
-      {reviews.length > 0 && <Reviews reviews={reviews} />}
+      <div className={styles.links}>
+        <NavLink
+          to={"menu"}
+          className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+          Меню
+        </NavLink>
+        <NavLink
+          to={"review"}
+          className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+          Отзывы
+        </NavLink>
+      </div>
+      <Outlet />
       <FormBlock />
       <div className={styles.block}></div>
     </div>

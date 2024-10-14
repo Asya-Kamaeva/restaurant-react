@@ -1,6 +1,21 @@
 .item {
   padding: 20px;
 }
-.block {
-  height: 1200px;
+.links {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+  a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 20px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+  }
+  a.active {
+    border-color: var(--blue);
+  }
 }
+// .block {
+//   height: 1200px;
+// }
