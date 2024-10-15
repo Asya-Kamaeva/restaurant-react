@@ -58,11 +58,7 @@ export const App = () => {
     <Provider store={store}>
       <UserContextProvider>
         <ThemeContextProvider>
-          <RouterProvider router={router}>
-            <Layout>
-              <RestaurantsPage />
-            </Layout>
-          </RouterProvider>
+          <RouterProvider router={router}></RouterProvider>
         </ThemeContextProvider>
       </UserContextProvider>
     </Provider>

@@ -12,19 +12,17 @@ export default function RestaurantTab({ id }) {
   const { theme } = useTheme();
 
   return (
-    <>
-      <NavLink
-        to={id}
-        className={({ isActive }) =>
-          classNames(styles.tab, {
-            [styles.tabActive]: isActive,
-            [styles.light]: theme === "light",
-            [styles.dark]: theme === "dark",
-          })
-        }
-      >
-        {restaurant.name}
-      </NavLink>
-    </>
+    <NavLink
+      to={id}
+      className={({ isActive }) =>
+        classNames(styles.tab, {
+          [styles.tabActive]: isActive,
+          [styles.light]: theme === "light",
+          [styles.dark]: theme === "dark",
+        })
+      }
+    >
+      {restaurant.name}
+    </NavLink>
   );
 }

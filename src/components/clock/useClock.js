@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export const useIntervalCallback = (callback) => {
+export const useWatch = (date) => {
+  const [time, setTime] = useState(date);
+
   useEffect(() => {
     const timerId = setInterval(() => {
-      callback(new Date());
+      setTime(new Date());
     }, 1000);
 
     return () => {
       clearInterval(timerId);
     };
-  }, [callback]);
+  }, []);
+
+  return time;
 };
