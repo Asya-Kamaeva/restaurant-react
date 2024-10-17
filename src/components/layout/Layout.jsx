@@ -2,14 +2,17 @@ import { ProgressBar } from "../progressBar/progressBar";
 import styles from "./layout.module.scss";
 import { ToggleTheme } from "../toggle-theme/toggle-theme";
 import { SignIn } from "../sign-in/sign-in";
-
-export const Layout = ({ children }) => {
+import { Outlet } from "react-router-dom";
+import { Cart } from "../cart/cart";
+import { Clock } from "../clock/clock";
+export const Layout = () => {
   return (
     <div>
       <header>
         <div className={styles.header}>
           <div className={styles.container}>
             <div className={styles.line}>
+              <Clock />
               <ToggleTheme />
               <SignIn />
             </div>
@@ -17,7 +20,8 @@ export const Layout = ({ children }) => {
         </div>
       </header>
       <ProgressBar />
-      {children}
+      <Outlet />
+      <Cart />
       <footer>
         <div className={styles.footer}>
           <div className={styles.container}>

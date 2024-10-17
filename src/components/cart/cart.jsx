@@ -9,15 +9,17 @@ export const Cart = () => {
   if (!dataCart.length) return null;
 
   return (
-    <div className={styles.cart}>
-      <div>Корзина:</div>
-      <ul className={styles.list}>
-        {dataCart.map(({ id, amount }) => (
-          <li key={id}>
-            <CartItem id={id} amount={amount} />
-          </li>
-        ))}
-      </ul>
+    <div className={styles.container}>
+      <div className={styles.cart}>
+        <div>Корзина:</div>
+        <ul className={styles.list}>
+          {dataCart.map(({ id, amount }) => (
+            <li key={id}>
+              <CartItem id={id} amount={amount} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
