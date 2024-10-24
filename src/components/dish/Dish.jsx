@@ -1,18 +1,36 @@
 import { useParams } from "react-router-dom";
 import styles from "./dish.module.scss";
 import { selectDishById } from "../../redux/dishes";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useUser } from "../userContext/use-user";
 import { DishCounter } from "../dish-counter/dish-counter";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { getDish } from "../../redux/dishes/get-dish";
+import { selectRequestStatusDish } from "../../redux/dishes";
 
 export const Dish = () => {
   const { dishId } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDish(dishId));
+  }, [dispatch, dishId]);
+
   const { name, price, ingredients } = useSelector((state) =>
     selectDishById(state, dishId),
   );
+
+  const status = useSelector(selectRequestStatusDish);
   const { user } = useUser();
   const navigate = useNavigate();
+
+  if (status === "idle" || status === "pending") {
+    return "loading";
+  }
+  if (status === "rejected") {
+    return "error";
+  }
 
   return (
     <div className={styles.container}>
